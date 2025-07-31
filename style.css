@@ -1,0 +1,790 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background and font */
+body {
+  opacity: 3;
+  transition: 2ms;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0e0e0e; /* Dark theme */
+  color: white;
+}
+body.fade-out {
+  opacity: 0;
+}
+
+
+.navbar {
+  background:transparent;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 0 10px #00f0ff88;
+  transition: 0.4s;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.logo-button {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  background: transparent;
+  border: 2px solid #ff4500;
+  padding: 10px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  position: relative;
+  transition: 0.4s ease;
+  z-index: 1;
+  letter-spacing: 2px;
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
+}
+
+.logo-button::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #ff0000, #ff9900, #ffff00, #ff0000);
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.6;
+  animation: firePulse 4s linear infinite;
+  border-radius: 12px;
+}
+
+.logo-button:hover {
+  transform: scale(1.1) rotate(-1deg);
+  box-shadow: 0 0 40px rgba(255, 100, 0, 0.8), 0 0 80px rgba(255, 0, 0, 0.6);
+  color: #fff700;
+  border-color: #ff0;
+}
+
+@keyframes firePulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: #eee;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links li a:hover {
+  background-color: #ff00b3;
+  color: #000;
+  box-shadow: 0 0 15px #ff00aa;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: transparent;
+  padding-top: 100px;
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  color: #ffd500;
+}
+
+.hero span {
+  color: #fff;
+  text-shadow: 0 0 10px #00f0ff;
+}
+
+.hero p {
+  margin: 10px 0 30px;
+  font-size: 1.2rem;
+  color: #00ffff; /* initial color */
+  animation: colorBlink 1s infinite alternate;
+  transition: all 0.4s ease;
+  position: relative;
+  cursor: default;
+}
+
+/* Hover effect */
+.hero p:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
+  transform: scale(1.05);
+}
+
+/* Blink animation between 2 colors */
+@keyframes colorBlink {
+  0% {
+    color: #00ffff; /* cyan */
+  }
+  100% {
+    color: #ff00ff; /* magenta */
+  }
+}
+
+
+
+.btn {
+  padding: 12px 28px;
+  background: transparent;
+  border: 2px solid #00c3ff;
+  border-radius: 25px;
+  color: #00f0ff;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #00f0ff;
+  color: #111;
+  box-shadow: 0 0 20px #00f0ff;
+}
+
+/*about*/
+.about-section {
+  background: transparent !important; /* හෝ background-color: transparent; */
+  /* හෝ background-color: unset; */
+  /* හෝ background-color: none; */
+}
+
+
+
+.about-section .section-title {
+  font-size: 2.8rem;
+ 
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ffc400;
+  letter-spacing: 1.5px;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: right;
+}
+
+/* Each box takes about 45% width (so 2 per row with gap) */
+.about-box {
+  flex: 0 1 40%;
+  height: 300px; /* ඔයාට අවශ්‍ය උස */
+  background: #5f5a5e4e;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,255,255,0.15);
+  padding: 25px 20px;
+  color: #eee;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0,255,255,0.4);
+}
+
+.about-box h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #00ffff;
+}
+
+.about-box p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+
+/*projcet*/
+.projects-section {
+  max-width: 1200px;     /* වැඩි විශාලත්වයක් */
+  margin: 0 auto;
+  padding: 50px 20px;
+  background: transparent;
+  color: #eee;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+.projects-section .section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #ffa200;
+  letter-spacing: 2px;
+}
+
+/* Grid layout for project cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* Each project card style */
+.project-card {
+  background: rgba(55, 52, 55, 0.587);
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0, 255, 255, 0.4);
+}
+
+/* Project images */
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Info inside card */
+.project-info {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Project title */
+.project-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #00ffff;
+}
+
+/* Project description */
+.project-info p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ccc;
+  flex-grow: 1;
+}
+
+/* Button style */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #00ffff;
+  color: #121212;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  background: #00b8b8;
+  color: #fff;
+}
+
+/*roject button*/
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00ffff;
+  padding: 10px 20px;
+  border: 2px solid #00ffff;
+  border-radius: 30px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px #00ffff;
+  margin: 20px auto;
+}
+
+.section-title:hover {
+  background-color: #00ffff;
+  color: #000;
+  box-shadow: 0 0 25px #00ffff;
+  transform: scale(1.05);
+}
+
+/*Blink names*/
+
+.subtext {
+  font-size: 50px;
+  color: #ff9900;
+  margin-top: 20px;
+  height: 40px; /* Prevent layout shift */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* CSS for glowing text effect */
+.typewriter {
+  font-weight: bold;
+  font-size: 90px;
+  color: #00ffff;
+  border-right: 2px solid #00ffff;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink-caret 0.7s step-end infinite;
+}
+
+/* blinking caret effect */
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 0.7s steps(1) infinite;
+  color: #ff7300;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/*profile poto*/
+.profile-photo {
+  width: 50px;   /* අවශ්‍ය width */
+  height: 80px;  /* අවශ්‍ය height */
+  object-fit: cover; /* image එකේ aspect ratio එක හොඳට තබා ගන්න */
+  border-radius: 20%; /* වටකුරු shape එකක් සදහට */
+}
+
+
+
+
+.about-section,
+.projects-section,
+.hero {
+  padding: 80px 20px;
+  margin-bottom: 60px;
+}
+
+/*Skills section*/
+/* Section styling */
+.skills-section {
+  padding: 4rem 2rem;
+  background: transparent;
+  text-align: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skill-box {
+  position: relative;
+  padding: 1.5rem;
+  background: transparent;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #0ff8f8b7;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
+
+.skill-box:hover {
+  transform: scale(1.1) rotate(1deg);
+  box-shadow: 0 0 25px #0ff, 0 0 50px #0ff8f8, 0 0 75px #0ff;
+}
+
+.skill-box img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.6s ease;
+}
+
+.skill-box:hover img {
+  transform: rotateY(360deg) scale(1.2);
+}
+
+.skill-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, #f47703, transparent);
+  animation: shineSlide 3s infinite linear;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+
+
+@keyframes shineSlide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.skill-box img,
+.skill-box .tooltip {
+  position: relative;
+  z-index: 1;
+}
+.skill-box::after {
+  content: attr(data-skill);
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00ffe1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.skill-box:hover::after {
+  opacity: 1;
+}
+
+
+
+/*skills 2*/
+
+
+
+/* Fullscreen canvas behind everything */
+#star-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* keep behind content */
+  background: rgba(127, 9, 56, 0.411); /* or transparent */
+}
+
+
+#bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  z-index: -1;
+}
+
+
+/*magic click*/
+.magic-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(0,255,255,0.2) 100%);
+  box-shadow: 0 0 8px rgba(0,255,255,0.6), 0 0 16px rgba(0,255,255,0.4);
+  transform: translate(-50%, -50%);
+  animation: vanish 1s ease-out forwards;
+}
+
+@keyframes vanish {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+}
+
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+  }
+}
+
+/* Mobile phones */
+@media screen and (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .project-card {
+    flex: 1 1 100%;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+}
+
+.contact-section {
+  padding: 80px 20px;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.section-title.neon-glow {
+  font-size: 2.5rem;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  margin-bottom: 40px;
+}
+
+
+
+
+/*contact*/
+/* Contact Section */
+.contact-section {
+  padding: 4rem 2rem;
+  background: transparent;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--main-gold);
+}
+
+/* Neon Glow Effect */
+.neon-glow {
+  text-shadow: 0 0 5px var(--main-gold), 0 0 10px var(--main-gold);
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/*  Input & Textarea Styling */
+.contact-form input,
+.contact-form textarea {
+  padding: 0.9rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05); /* glass look */
+  color: #ffffff;
+  font-size: 1rem;
+  backdrop-filter: blur(10px); /* glass blur */
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+/*  On Focus: Glowing border */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border: 2px solid #a86ff8;
+  box-shadow: 0 0 10px #a86ff8, 0 0 30px rgba(168, 111, 248, 0.2);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/*  Textarea Specific */
+.contact-form textarea {
+  height: 130px;
+  resize: vertical;
+}
+
+/*  Optional: Input spacing */
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 1rem;
+}
+
+/* 🚀 Send Button - Fire Glow Style */
+.send-btn {
+  padding: 0.8rem 1.5rem;
+  background: var(--main-gold);
+  color: var(--bg-dark);
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(244, 162, 97, 0.6);
+}
+
+/* 🔥 Fire Pulse on Hover */
+.send-btn:hover {
+  background: var(--main-red);
+  color: #f92222;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.7), 0 0 40px rgba(255, 77, 109, 0.4);
+}
+
+/* 🔥 Fire Flicker Animation Layer */
+.send-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 77, 109, 0.2) 0%, transparent 70%);
+  animation: flameFlicker 2.2s infinite ease-in-out;
+  z-index: -1;
+  transform: rotate(25deg);
+  opacity: 0.4;
+}
+
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(25deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.2) rotate(30deg);
+    opacity: 0.6;
+  }
+}
+
+
+/* 📱 Social Buttons with Icons */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-btn img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s;
+}
+
+/* Hover glow & icon bounce */
+.social-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.social-btn:hover img {
+  transform: rotate(10deg) scale(1.15);
+}
+
+/* 🌈 Custom Button Backgrounds */
+.social-btn.whatsapp {
+  background-color: #25d366;
+}
+
+.social-btn.email {
+  background-color: #ff6b6b;
+}
+
+.social-btn.github {
+  background-color: #333;
+}
+
+.social-btn.facebook {
+  background-color: #4267B2;
+}
